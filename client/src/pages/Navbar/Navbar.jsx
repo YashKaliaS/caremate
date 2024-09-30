@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
     const location = useLocation();
@@ -15,11 +15,30 @@ const Navbar = () => {
         checkLoggedIn();
     }, []);
 
+    const links = [
+        {
+            id: 1,
+            name: "Home",
+            path: "/",
+        },
+        {
+            id: 2,
+            name: "Todo",
+            path: "/todo",
+        }
+    ]
+
     return (
         <>
             {showNavbar ?
                 <div className="w-full h-16 top-0 shadow-lg flex justify-between items-center p-2">
                     <a href='/' className="logo cursor-pointer">Logo</a>
+
+                    <div className="links flex gap-4 justify-center items-center">
+                        {links.map((l) => (
+                            <Link key={l.id} to={l.path} className="hover:underline text-blue-500 text-xl ">{l.name}</Link>
+                        ))}
+                    </div>
 
                     <div className='login/signout'>
                         {loggedIn ?
