@@ -5,7 +5,7 @@ import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
 import Navbar from './pages/Navbar/Navbar'
 import Todo from './pages/Todo'
-
+import Add from './pages/Add'
 function App() {
 
   return (
@@ -16,6 +16,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/todo' element={<Todo />} />
+        <Route path='/add-task' element={<Add />} />
       </Routes>
     </Router>
   )
